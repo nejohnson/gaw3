@@ -16,7 +16,11 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
-#include <linux/tcp.h>
+#ifdef __CYGWIN__
+  #include <netinet/tcp.h>
+#else
+  #include <linux/tcp.h>
+#endif
 
 #include <strmem.h>
 #include <duprintf.h>
